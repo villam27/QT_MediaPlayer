@@ -6,6 +6,7 @@
 
 #include <QMainWindow>
 #include <QVideoWidget>
+#include <QMediaPlayer>
 #include <QVBoxLayout>
 #include <QSlider>
 #include "custommenubar.h"
@@ -29,7 +30,12 @@ private:
     Ui::MainWindow *ui;
     CustomMenuBar *_menuBar;
     QVideoWidget *_video;
+    QMediaPlayer *_player;
     QSlider *_videoSlider;
     MediaPlayerButton *_mediaPlayerButton;
+
+private slots:
+    void onMediaStatusChanged(QMediaPlayer::MediaStatus status);
+    void onPlaybackStateChanged(QMediaPlayer::PlaybackState state);
 };
 #endif // MAINWINDOW_H

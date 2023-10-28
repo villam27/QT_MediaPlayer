@@ -8,14 +8,23 @@ CustomMenuBar::CustomMenuBar(QWidget *parent) : QMenuBar(parent)
     QAction *action = new QAction("Load", this);
     connect(action, &QAction::triggered, this, &CustomMenuBar::load);
     menu->addAction(action);
+    _player = NULL;
 }
 
 CustomMenuBar::~CustomMenuBar()
 {}
 
+void CustomMenuBar::setMediaPlayer(QMediaPlayer *player)
+{
+    _player = player;
+}
+
 // Slots
 void CustomMenuBar::load()
 {
-    // TODO: Implement
-    std::cout << "Load file" << std::endl;
+    _player->pause();
+    QString filename = QFileDialog::getOpenFileName(this, "Open a file", QDir::homePath(), "*.mkv *.mp4");
+    std::cout << filename.toStdString() << std::endl;
+    if(_player)
+        _player->setSource(QUrl::fromLocalFile(filename));
 }
