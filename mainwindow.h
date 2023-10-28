@@ -5,6 +5,7 @@
 #define WIN_HEIGHT 600
 
 #include <QMainWindow>
+#include <QVideoWidget>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,5 +21,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    QVideoWidget *_video;
 };
 #endif // MAINWINDOW_H
