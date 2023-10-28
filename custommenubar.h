@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <QMenuBar>
+#include <QFileDialog>
+#include <QMediaPlayer>
 
 class CustomMenuBar : public QMenuBar
 {
@@ -11,6 +13,11 @@ class CustomMenuBar : public QMenuBar
 public:
     CustomMenuBar(QWidget *parent = nullptr);
     ~CustomMenuBar();
+
+    void setMediaPlayer(QMediaPlayer *player);
+
+private:
+    QMediaPlayer *_player;
 
 private slots:
     void load();
