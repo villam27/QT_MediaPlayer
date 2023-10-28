@@ -6,9 +6,14 @@
 
 class CustomMenuBar : public QMenuBar
 {
+    Q_OBJECT
+
 public:
     CustomMenuBar(QWidget *parent = nullptr);
     ~CustomMenuBar();
+
+private slots:
+    void load();
 };
 
 #endif // CUSTOMMENUBAR_H

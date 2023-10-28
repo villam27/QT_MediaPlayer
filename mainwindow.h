@@ -6,7 +6,10 @@
 
 #include <QMainWindow>
 #include <QVideoWidget>
+#include <QVBoxLayout>
+#include <QStackedLayout>
 #include "custommenubar.h"
+#include "mediaplayerbutton.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,8 +24,11 @@ public:
     ~MainWindow();
 
 private:
+    QVBoxLayout *_layout;
+
     Ui::MainWindow *ui;
     QVideoWidget *_video;
     CustomMenuBar *_menuBar;
+    MediaPlayerButton *_mediaPlayerButton;
 };
 #endif // MAINWINDOW_H

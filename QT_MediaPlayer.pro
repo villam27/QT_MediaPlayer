@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     custommenubar.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    mediaplayerbutton.cpp
 
 HEADERS += \
     custommenubar.h \
-    mainwindow.h
+    mainwindow.h \
+    mediaplayerbutton.h
 
 FORMS += \
     mainwindow.ui
