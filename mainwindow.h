@@ -37,5 +37,8 @@ private:
 private slots:
     void onMediaStatusChanged(QMediaPlayer::MediaStatus status);
     void onPlaybackStateChanged(QMediaPlayer::PlaybackState state);
+
+    void onPositionChanged(qint64 position);
+    void onValueChanged(int value);
 };
 #endif // MAINWINDOW_H
