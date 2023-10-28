@@ -7,7 +7,7 @@
 #include <QMainWindow>
 #include <QVideoWidget>
 #include <QVBoxLayout>
-#include <QStackedLayout>
+#include <QSlider>
 #include "custommenubar.h"
 #include "mediaplayerbutton.h"
 
@@ -27,8 +27,9 @@ private:
     QVBoxLayout *_layout;
 
     Ui::MainWindow *ui;
-    QVideoWidget *_video;
     CustomMenuBar *_menuBar;
+    QVideoWidget *_video;
+    QSlider *_videoSlider;
     MediaPlayerButton *_mediaPlayerButton;
 };
 #endif // MAINWINDOW_H
