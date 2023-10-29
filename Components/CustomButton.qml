@@ -7,8 +7,9 @@ Button {
     property color backgroundPressedColor: Qt.darker(backgroundDefaultColor, 1.2)
     property color contentItemTextColor: "white"
 
-    width: 70
-    height: 30
+    width: parent.width - 20
+    height: 45
+    x: 10
 
     contentItem: redButtonText
     Text {
@@ -17,14 +18,14 @@ Button {
         color: "white"
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-        font.pixelSize: 14
+        font.pixelSize: 20
         font.bold: true
     }
 
     background: Rectangle {
-        color: "#41cd52"
-        radius: 20
-        border.color: "black"
+        color: "#17B890"
+        radius: 5
+        border.color: "#5E807F"
     }
 
     signal onButtonClicked()
