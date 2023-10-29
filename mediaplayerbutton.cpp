@@ -7,25 +7,15 @@ MediaPlayerButton::MediaPlayerButton(QWidget *parent) : QWidget(parent)
     _layout->setSizeConstraint(QLayout::SetFixedSize);
     setLayout(_layout);
 
-    _testButton = new QQuickWidget(this);
-    _testButton->setSource(QUrl("qrc:/custombutton.qml"));
-    _testButton->rootObject()->setProperty("customText", "Pause");
-
-    connect(_testButton->rootObject()
-            , SIGNAL(onButtonClicked())
-            , this
-            , SLOT(OnPauseButtonClicked()));
-
-    _prevButton = new QPushButton("Prev", this);
-    _backButton = new QPushButton("<< 10", this);
-    _stopButton = new QPushButton("Stop", this);
-    _pauseButton = new QPushButton("Pause", this);
-    _forwardButton = new QPushButton("10 >>", this);
-    _nextButton = new QPushButton("Next", this);
+    _prevButton = createQuickWidget("Prev");
+    _backButton = createQuickWidget("<< 10");
+    _stopButton = createQuickWidget("Stop");
+    _pauseButton = createQuickWidget("Pause");
+    _forwardButton = createQuickWidget("10 >>");
+    _nextButton = createQuickWidget("Next");
 
     connectButton();
 
-    _layout->addWidget(_testButton);
     _layout->addWidget(_prevButton);
     _layout->addWidget(_backButton);
     _layout->addWidget(_stopButton);
@@ -37,25 +27,33 @@ MediaPlayerButton::MediaPlayerButton(QWidget *parent) : QWidget(parent)
 MediaPlayerButton::~MediaPlayerButton()
 {}
 
-void MediaPlayerButton::connectButton()
-{
-    connect(_prevButton, &QPushButton::clicked
-            , this, &MediaPlayerButton::OnPrevButtonClicked);
-    connect(_backButton, &QPushButton::clicked
-            , this, &MediaPlayerButton::OnBackButtonClicked);
-    connect(_stopButton, &QPushButton::clicked
-            , this, &MediaPlayerButton::OnStopButtonClicked);
-    connect(_pauseButton, &QPushButton::clicked
-            , this, &MediaPlayerButton::OnPauseButtonClicked);
-    connect(_forwardButton, &QPushButton::clicked
-            , this, &MediaPlayerButton::OnForwardButtonClicked);
-    connect(_nextButton, &QPushButton::clicked
-            , this, &MediaPlayerButton::OnNextButtonClicked);
-}
-
 void MediaPlayerButton::setMediaPlayer(QMediaPlayer *player)
 {
     _player = player;
+}
+
+void MediaPlayerButton::connectButton()
+{
+    connect(_prevButton->rootObject(), SIGNAL(onButtonClicked())
+            , this, SLOT(OnPauseButtonClicked()));
+    connect(_backButton->rootObject(), SIGNAL(onButtonClicked())
+            , this, SLOT(OnBackButtonClicked()));
+    connect(_stopButton->rootObject(), SIGNAL(onButtonClicked())
+            , this, SLOT(OnStopButtonClicked()));
+    connect(_pauseButton->rootObject(), SIGNAL(onButtonClicked())
+            , this, SLOT(OnPauseButtonClicked()));
+    connect(_forwardButton->rootObject(), SIGNAL(onButtonClicked())
+            , this, SLOT(OnForwardButtonClicked()));
+    connect(_nextButton->rootObject(), SIGNAL(onButtonClicked())
+            , this, SLOT(OnNextButtonClicked()));
+}
+
+QQuickWidget *MediaPlayerButton::createQuickWidget(QVariant customText)
+{
+    QQuickWidget *quickWidget = new QQuickWidget(this);
+    quickWidget->setSource(QUrl("qrc:/custombutton.qml"));
+    quickWidget->rootObject()->setProperty("customText", customText);
+    return quickWidget;
 }
 
 // Slots

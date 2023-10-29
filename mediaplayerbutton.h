@@ -19,19 +19,18 @@ public:
 
 private:
     void connectButton();
+    QQuickWidget *createQuickWidget(QVariant customText);
 
 private:
     QHBoxLayout *_layout;
-    QPushButton *_prevButton;
-    QPushButton *_backButton;
-    QPushButton *_stopButton;
-    QPushButton *_pauseButton;
-    QPushButton *_forwardButton;
-    QPushButton *_nextButton;
+    QQuickWidget *_prevButton;
+    QQuickWidget *_backButton;
+    QQuickWidget *_stopButton;
+    QQuickWidget *_pauseButton;
+    QQuickWidget *_forwardButton;
+    QQuickWidget *_nextButton;
 
     QMediaPlayer *_player;
-
-    QQuickWidget *_testButton;
 
 private slots:
     void OnPrevButtonClicked();
