@@ -5,6 +5,7 @@
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QMediaPlayer>
+#include <QtQuickWidgets>
 
 class MediaPlayerButton : public QWidget
 {
@@ -29,6 +30,8 @@ private:
     QPushButton *_nextButton;
 
     QMediaPlayer *_player;
+
+    QQuickWidget *_testButton;
 
 private slots:
     void OnPrevButtonClicked();

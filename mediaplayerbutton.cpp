@@ -7,6 +7,15 @@ MediaPlayerButton::MediaPlayerButton(QWidget *parent) : QWidget(parent)
     _layout->setSizeConstraint(QLayout::SetFixedSize);
     setLayout(_layout);
 
+    _testButton = new QQuickWidget(this);
+    _testButton->setSource(QUrl("qrc:/custombutton.qml"));
+    _testButton->rootObject()->setProperty("customText", "Pause");
+
+    connect(_testButton->rootObject()
+            , SIGNAL(onButtonClicked())
+            , this
+            , SLOT(OnPauseButtonClicked()));
+
     _prevButton = new QPushButton("Prev", this);
     _backButton = new QPushButton("<< 10", this);
     _stopButton = new QPushButton("Stop", this);
@@ -16,6 +25,7 @@ MediaPlayerButton::MediaPlayerButton(QWidget *parent) : QWidget(parent)
 
     connectButton();
 
+    _layout->addWidget(_testButton);
     _layout->addWidget(_prevButton);
     _layout->addWidget(_backButton);
     _layout->addWidget(_stopButton);

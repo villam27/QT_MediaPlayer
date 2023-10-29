@@ -4,15 +4,20 @@ import QtQuick.Controls 2.15
 Button {
     id: redButton
 
-    width: 100
-    height: 40
-    text: "Red Button"
+    width: 80
+    height: 30
+    text: customText
     background: Rectangle {
         color: "red"
         radius: 5
         border.color: "black"
     }
+
+    signal onButtonClicked()
+
     onClicked: {
-        console.log("Red button clicked")
+        redButton.onButtonClicked();
     }
+
+    property string customText: "Red Button"
 }

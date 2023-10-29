@@ -8,8 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     QWidget *centralWidget = new QWidget(this);
-    _quickWidget = new QQuickWidget(this);
-    _quickWidget->setSource(QUrl("qrc:/custombutton.qml"));
+    //_quickWidget = new QQuickWidget(this);
+    //_quickWidget->setSource(QUrl("qrc:/custombutton.qml"));
     _layout = new QVBoxLayout(centralWidget);
     _video = new QVideoWidget(this);
     _menuBar = new CustomMenuBar(this);
