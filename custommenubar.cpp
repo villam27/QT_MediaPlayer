@@ -4,6 +4,7 @@
 CustomMenuBar::CustomMenuBar(QWidget *parent) : QMenuBar(parent)
 {
     (void)parent;
+    setStyleSheet("background-color: white; color: black;");
     QMenu *menu = addMenu("File");
     QAction *action = new QAction("Load", this);
     connect(action, &QAction::triggered, this, &CustomMenuBar::load);

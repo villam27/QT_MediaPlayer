@@ -8,8 +8,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     QWidget *centralWidget = new QWidget(this);
-    //_quickWidget = new QQuickWidget(this);
-    //_quickWidget->setSource(QUrl("qrc:/custombutton.qml"));
     _layout = new QVBoxLayout(centralWidget);
     _video = new QVideoWidget(this);
     _menuBar = new CustomMenuBar(this);
@@ -17,10 +15,10 @@ MainWindow::MainWindow(QWidget *parent)
     _mediaPlayerButton = new MediaPlayerButton(this);
     _player = new QMediaPlayer(this);
 
+    setStyleSheet("background-color: black; color: white;");
     setCentralWidget(centralWidget);
-    _video->setGeometry(20, 30, WIN_WIDTH - 40, WIN_HEIGHT - 100);
     _player->setVideoOutput(_video);
-    _videoSlider->setFixedWidth(WIN_WIDTH - 40);
+    _videoSlider->setFixedWidth(WIN_WIDTH);
     _videoSlider->setTracking(true);
     _videoSlider->setTickInterval(1);
     _videoSlider->setTickPosition(QSlider::TicksBelow);
