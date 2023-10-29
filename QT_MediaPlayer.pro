@@ -1,4 +1,4 @@
-QT       += core gui widgets multimediawidgets quick quickwidgets core5compat
+QT       += core gui widgets multimediawidgets quick quickwidgets core5compat multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -28,7 +28,24 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-	custombutton.qml
+	CustomButton.qml \
+	assets/b_rewind.svg \
+	assets/f_rewind.svg \
+	assets/full.svg \
+	assets/loop.svg \
+	assets/m_sound.svg \
+	assets/next.svg \
+	assets/no_sound.svg \
+	assets/pause.svg \
+	assets/play.svg \
+	assets/prev.svg \
+	assets/replay.svg \
+	assets/s_loop.svg \
+	assets/save.svg \
+	assets/sound.svg \
+	assets/stop.svg \
+	assets/z_sound.svg
+	CustomVideo.qml
 
 RESOURCES += \
 	ressources.qrc

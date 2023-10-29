@@ -23,7 +23,7 @@ Button {
 
     background: Rectangle {
         color: "#41cd52"
-        //radius: 5
+        radius: 20
         border.color: "black"
     }
 

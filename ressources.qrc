@@ -1,5 +1,26 @@
 <RCC>
     <qresource prefix="/">
-        <file>custombutton.qml</file>
+        <file>Components/CustomButton.qml</file>
+        <file>Components/CustomVideo.qml</file>
+        <file>Components/mainwindow.qml</file>
+        <file>Components/BottomBar.qml</file>
+        <file>Components/LeftScreen.qml</file>
+        <file>assets/b_rewind.svg</file>
+        <file>assets/f_rewind.svg</file>
+        <file>assets/loop.svg</file>
+        <file>assets/m_sound.svg</file>
+        <file>assets/next.svg</file>
+        <file>assets/no_sound.svg</file>
+        <file>assets/pause.svg</file>
+        <file>assets/play.svg</file>
+        <file>assets/prev.svg</file>
+        <file>assets/replay.svg</file>
+        <file>assets/s_loop.svg</file>
+        <file>assets/save.svg</file>
+        <file>assets/sound.svg</file>
+        <file>assets/stop.svg</file>
+        <file>assets/z_sound.svg</file>
+        <file>Components/IconButton.qml</file>
+        <file>assets/full.svg</file>
     </qresource>
 </RCC>
