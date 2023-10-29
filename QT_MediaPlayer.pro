@@ -1,4 +1,4 @@
-QT       += core gui widgets multimediawidgets quick quickwidgets
+QT       += core gui widgets multimediawidgets quick quickwidgets core5compat
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
