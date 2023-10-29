@@ -1,4 +1,4 @@
-QT       += core gui widgets multimediawidgets
+QT       += core gui widgets multimediawidgets quick quickwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -26,3 +26,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+	mainwindow.qml

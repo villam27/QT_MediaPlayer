@@ -9,6 +9,7 @@
 #include <QMediaPlayer>
 #include <QVBoxLayout>
 #include <QSlider>
+#include <QtQuickWidgets>
 #include "custommenubar.h"
 #include "mediaplayerbutton.h"
 
@@ -33,6 +34,8 @@ private:
     QMediaPlayer *_player;
     QSlider *_videoSlider;
     MediaPlayerButton *_mediaPlayerButton;
+
+    QQuickWidget *_quickWidget;
 
 private slots:
     void onMediaStatusChanged(QMediaPlayer::MediaStatus status);

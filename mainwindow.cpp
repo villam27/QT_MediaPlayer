@@ -8,6 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     QWidget *centralWidget = new QWidget(this);
+    _quickWidget = new QQuickWidget(this);
+    _quickWidget->setSource(QUrl("qrc:/mainwindow.qml"));
     _layout = new QVBoxLayout(centralWidget);
     _video = new QVideoWidget(this);
     _menuBar = new CustomMenuBar(this);
@@ -38,6 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
     _layout->addWidget(_video);
     _layout->addWidget(_videoSlider, 0, Qt::AlignHCenter);
     _layout->addWidget(_mediaPlayerButton, 0, Qt::AlignHCenter);
+    _layout->addWidget(_quickWidget);
 }
 
 MainWindow::~MainWindow()
