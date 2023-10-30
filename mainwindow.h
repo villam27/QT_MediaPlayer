@@ -30,6 +30,7 @@ private:
     Ui::MainWindow *ui;
     CustomMenuBar *_menuBar;
     QVideoWidget *_video;
+    QAudioOutput *_audio;
     QMediaPlayer *_player;
     QSlider *_videoSlider;
     MediaPlayerButton *_mediaPlayerButton;

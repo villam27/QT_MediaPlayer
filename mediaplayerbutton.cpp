@@ -7,6 +7,8 @@ MediaPlayerButton::MediaPlayerButton(QWidget *parent) : QWidget(parent)
     _layout->setSizeConstraint(QLayout::SetFixedSize);
     setLayout(_layout);
 
+    _audio = nullptr;
+    _player = nullptr;
     _prevButton = new QPushButton("Prev", this);
     _backButton = new QPushButton("<< 10", this);
     _stopButton = new QPushButton("Stop", this);
@@ -14,6 +16,12 @@ MediaPlayerButton::MediaPlayerButton(QWidget *parent) : QWidget(parent)
     _forwardButton = new QPushButton("10 >>", this);
     _nextButton = new QPushButton("Next", this);
 
+    _audioSlider = new QSlider(Qt::Horizontal, this);
+    _audioSlider->setRange(0, 100);
+    _audioSlider->setValue(100);
+
+    connect(_audioSlider, &QSlider::sliderMoved
+            , this, &MediaPlayerButton::OnAudioSliderValueChanged);
     connectButton();
 
     _layout->addWidget(_prevButton);
@@ -22,6 +30,7 @@ MediaPlayerButton::MediaPlayerButton(QWidget *parent) : QWidget(parent)
     _layout->addWidget(_pauseButton);
     _layout->addWidget(_forwardButton);
     _layout->addWidget(_nextButton);
+    _layout->addWidget(_audioSlider);
 }
 
 MediaPlayerButton::~MediaPlayerButton()
@@ -46,6 +55,11 @@ void MediaPlayerButton::connectButton()
 void MediaPlayerButton::setMediaPlayer(QMediaPlayer *player)
 {
     _player = player;
+}
+
+void MediaPlayerButton::setAudioOutput(QAudioOutput *audio)
+{
+    _audio = audio;
 }
 
 // Slots
@@ -84,4 +98,11 @@ void MediaPlayerButton::OnNextButtonClicked()
 {
     //_player->pause();
     _player->setPosition(_player->duration());
+}
+
+void MediaPlayerButton::OnAudioSliderValueChanged(int value)
+{
+    std::cout << value << std::endl;
+    if (_audio)
+        _audio->setVolume((float)value / 100.0f);
 }

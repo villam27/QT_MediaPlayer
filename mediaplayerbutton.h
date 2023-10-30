@@ -4,7 +4,9 @@
 #include <QWidget>
 #include <QHBoxLayout>
 #include <QPushButton>
+#include <QSlider>
 #include <QMediaPlayer>
+#include <QAudioOutput>
 
 class MediaPlayerButton : public QWidget
 {
@@ -15,6 +17,7 @@ public:
     ~MediaPlayerButton();
 
     void setMediaPlayer(QMediaPlayer *player);
+    void setAudioOutput(QAudioOutput *audio);
 
 private:
     void connectButton();
@@ -28,6 +31,10 @@ private:
     QPushButton *_forwardButton;
     QPushButton *_nextButton;
 
+    QSlider *_audioSlider;
+    QAudioOutput *_audio;
+
+
     QMediaPlayer *_player;
 
 private slots:
@@ -37,6 +44,8 @@ private slots:
     void OnPauseButtonClicked();
     void OnForwardButtonClicked();
     void OnNextButtonClicked();
+
+    void OnAudioSliderValueChanged(int value);
 };
 
 #endif // MEDIAPLAYERBUTTON_H
