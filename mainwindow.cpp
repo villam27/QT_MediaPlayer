@@ -27,6 +27,8 @@ MainWindow::MainWindow(QWidget *parent)
     _videoSlider->setTickPosition(QSlider::TicksBelow);
     _menuBar->setMediaPlayer(_player);
     _mediaPlayerButton->setMediaPlayer(_player);
+    _mediaPlayerButton->setAudioOutput(_audio);
+    _audio->setVolume(1);
 
     connect(_player, &QMediaPlayer::mediaStatusChanged
                    , this, &MainWindow::onMediaStatusChanged);
