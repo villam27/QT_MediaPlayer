@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     _player = new QMediaPlayer;
 
     setCentralWidget(centralWidget);
-    _video->setGeometry(20, 30, WIN_WIDTH - 40, WIN_HEIGHT - 100);
+    _video->setGeometry(0, 0, WIN_WIDTH, WIN_HEIGHT - 100);
     _player->setVideoOutput(_video);
     _player->setAudioOutput(_audio);
     _videoSlider->setFixedWidth(WIN_WIDTH - 40);

@@ -31,6 +31,9 @@ MediaPlayerButton::MediaPlayerButton(QWidget *parent) : QWidget(parent)
     _layout->addWidget(_forwardButton);
     _layout->addWidget(_nextButton);
     _layout->addWidget(_audioSlider);
+
+
+
 }
 
 MediaPlayerButton::~MediaPlayerButton()
