@@ -1,0 +1,199 @@
+/*-----QWidget-----*/
+QWidget
+{
+	background-color: #9faaa5;
+	color: #000000;
+	border-color: #000000;
+}
+
+
+/*-----QLabel-----*/
+QLabel
+{
+	background-color: transparent;
+	color: #000;
+}
+
+
+QLabel::disabled
+{
+	background-color: transparent;
+	color: gray;
+}
+
+
+/*-----QMenuBar-----*/
+QMenuBar
+{
+	background-color: #ffffff;
+	color: #000000;
+}
+
+
+QMenuBar::item
+{
+    background-color: transparent;
+}
+
+
+QMenuBar::item:disabled
+{
+    background-color: transparent;
+	color: gray;
+}
+
+
+QMenuBar::item:selected
+{
+    background-color: gray;
+}
+
+
+QMenuBar::item:pressed
+{
+    background-color: darkgray;
+    border: 1px solid #794f34;
+    margin-bottom: -1px;
+    padding-bottom: 1px;
+}
+
+
+/*-----QMenu-----*/
+QMenu
+{
+	background-color: white;
+	border: 1px solid;
+	color: black;
+}
+
+
+QMenu::separator
+{
+	height: 1px;
+	background-color: #000;
+	color: #ffffff;
+	padding-left: 4px;
+}
+
+
+QMenu::item
+{
+	min-width : 150px;
+	padding: 3px 20px 3px 20px;
+}
+
+
+QMenu::item:selected
+{
+	background-color: gray;
+	color: #ffffff;
+}
+
+
+QMenu::item:disabled
+{
+	color: #262626;
+}
+
+
+
+/*-----QPushButton-----*/
+QPushButton
+{
+	background-color: #e0d5d2;
+	color: #000000;
+	font: bold 15px;
+	min-width: 3em;
+	border: 1px solid #454545;
+}
+
+
+QPushButton::hover
+{
+	background-color: #d2f9ea;
+	color: #000000;
+}
+
+
+QPushButton::pressed
+{
+	background-color: #ccdfd8;
+	color: #000000;
+}
+
+
+QPushButton::checked
+{
+	background-color: #ccdfd8;
+	color: #000000;
+}
+
+
+/*-----QSlider-----*/
+QSlider{
+	background-color: #e5ece9;
+	border: 1px solid;
+	border-radius: 3px;
+	height: 10px;
+	padding-left: -5px;
+	padding-right: -5px;
+}
+
+
+QSlider::groove:horizontal 
+{
+	background-color: transparent;
+	height: 14px;
+	padding: 3px;
+}
+
+
+QSlider::sub-page:horizontal 
+{
+	background-color: #15f093;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	margin-left: 8px;
+}
+
+
+QSlider::add-page:horizontal 
+{
+	background-color: transparent;
+}
+
+
+QSlider::handle:horizontal 
+{
+	background-color: transparent;
+	width: 12px;
+	height: 12px;
+	border-radius: 6px;
+}
+
+
+QSlider::handle:horizontal:hover 
+{
+	background-color: gray;
+}
+
+
+QSlider::sub-page:horizontal:disabled 
+{
+	background-color: transparent;
+	border-color: #999;
+}
+
+
+QSlider::add-page:horizontal:disabled 
+{
+	background-color: transparent;
+	border-color: #999;
+}
+
+
+QSlider::handle:horizontal:disabled 
+{
+	background-color: transparent;
+}
+
