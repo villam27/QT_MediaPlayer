@@ -96,14 +96,12 @@ QMenu::item:disabled
 }
 
 
-
 /*-----QPushButton-----*/
 QPushButton
 {
 	background-color: #e0d5d2;
 	color: #000000;
 	font: bold 15px;
-	min-width: 3em;
 	border: 1px solid #454545;
 }
 
