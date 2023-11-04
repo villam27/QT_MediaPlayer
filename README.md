@@ -13,6 +13,8 @@ As this project is a work in progress, the current feature set is limited. Here 
 - Adjust the volume and mute/unmute audio.
 - Seek through the media timeline.
 
+![gif](https://github.com/villam27/QT_MediaPlayer/blob/master/video.gif)
+
 ## Installation
 
 To use the Simple Qt Media Player, you will need to compile and build the application. Here are the steps to get started:
