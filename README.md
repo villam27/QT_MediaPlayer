@@ -25,7 +25,7 @@ To use the Simple Qt Media Player, you will need to compile and build the applic
 2. **Clone the Repository:**
    ```shell
    git clone https://github.com/villam27/QT_MediaPlayer
-   cd simple-qt-media-player
+   cd QT_MediaPlayer
    ```
 
 3. **Build the Project:**
