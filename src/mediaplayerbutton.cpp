@@ -3,18 +3,24 @@
 
 MediaPlayerButton::MediaPlayerButton(QWidget *parent) : QWidget(parent)
 {
+    QPixmap pixmap("://assets/play.svg");
+    _playIcon.addPixmap(pixmap);
+    pixmap.load("://assets/pause.svg");
+    _pauseIcon.addPixmap(pixmap);
+
     _layout = new QHBoxLayout(this);
     _layout->setSizeConstraint(QLayout::SetFixedSize);
     setLayout(_layout);
 
     _audio = nullptr;
     _player = nullptr;
-    _prevButton = new QPushButton("Prev", this);
-    _backButton = new QPushButton("<< 10", this);
-    _stopButton = new QPushButton("Stop", this);
-    _pauseButton = new QPushButton("Pause", this);
-    _forwardButton = new QPushButton("10 >>", this);
-    _nextButton = new QPushButton("Next", this);
+    _prevButton = createButton("://assets/prev.svg", 35, 35);
+    _backButton = createButton("://assets/b_rewind.svg", 40, 40);
+    _stopButton = createButton("://assets/stop.svg");
+    _pauseButton = createButton("://assets/pause.svg");
+    _forwardButton = createButton("://assets/f_rewind.svg", 40, 40);
+    _nextButton = createButton("://assets/next.svg", 35, 35);
+    _soundButton = createButton("://assets/sound.svg", 35, 35);
 
     _audioSlider = new QSlider(Qt::Horizontal, this);
     _audioSlider->setRange(0, 100);
@@ -30,6 +36,8 @@ MediaPlayerButton::MediaPlayerButton(QWidget *parent) : QWidget(parent)
     _layout->addWidget(_pauseButton);
     _layout->addWidget(_forwardButton);
     _layout->addWidget(_nextButton);
+    _layout->addSpacing(50);
+    _layout->addWidget(_soundButton);
     _layout->addWidget(_audioSlider);
 }
 
@@ -50,6 +58,16 @@ void MediaPlayerButton::connectButton()
             , this, &MediaPlayerButton::OnForwardButtonClicked);
     connect(_nextButton, &QPushButton::clicked
             , this, &MediaPlayerButton::OnNextButtonClicked);
+}
+
+QPushButton *MediaPlayerButton::createButton(const QString &path, int w, int h)
+{
+    QPixmap pixmap(path);
+    QIcon ButtonIcon(pixmap);
+    QPushButton *button = new QPushButton("", this);
+    button->setIcon(ButtonIcon);
+    button->setIconSize(QSize(w, h));
+    return button;
 }
 
 void MediaPlayerButton::setMediaPlayer(QMediaPlayer *player)
@@ -84,9 +102,15 @@ void MediaPlayerButton::OnStopButtonClicked()
 void MediaPlayerButton::OnPauseButtonClicked()
 {
     if (_player->isPlaying())
+    {
+        _pauseButton->setIcon(_playIcon);
         _player->pause();
+    }
     else
+    {
+        _pauseButton->setIcon(_pauseIcon);
         _player->play();
+    }
 }
 
 void MediaPlayerButton::OnForwardButtonClicked()

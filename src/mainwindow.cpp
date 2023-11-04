@@ -18,13 +18,14 @@ MainWindow::MainWindow(QWidget *parent)
     _player = new QMediaPlayer;
 
     setCentralWidget(centralWidget);
-    _video->setGeometry(20, 30, WIN_WIDTH - 40, WIN_HEIGHT - 100);
+    _video->setGeometry(0, 0, WIN_WIDTH, WIN_HEIGHT - 100);
     _player->setVideoOutput(_video);
     _player->setAudioOutput(_audio);
     _videoSlider->setFixedWidth(WIN_WIDTH - 40);
     _videoSlider->setTracking(true);
     _videoSlider->setTickInterval(1);
     _videoSlider->setTickPosition(QSlider::TicksBelow);
+    _videoSlider->setDisabled(true);
     _menuBar->setMediaPlayer(_player);
     _mediaPlayerButton->setMediaPlayer(_player);
     _mediaPlayerButton->setAudioOutput(_audio);
@@ -63,6 +64,7 @@ void MainWindow::onMediaStatusChanged(QMediaPlayer::MediaStatus status)
 {
     if (status == QMediaPlayer::LoadedMedia)
     {
+        _videoSlider->setDisabled(false);
         _player->setPosition(0);
         _player->play();
         _videoSlider->setRange(0, _player->duration() / 1000);

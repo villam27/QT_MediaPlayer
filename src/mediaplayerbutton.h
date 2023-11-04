@@ -8,6 +8,9 @@
 #include <QMediaPlayer>
 #include <QAudioOutput>
 
+#define DEFAULT_WIDTH 50
+#define DEFAULT_HEIGHT 50
+
 class MediaPlayerButton : public QWidget
 {
     Q_OBJECT
@@ -21,6 +24,7 @@ public:
 
 private:
     void connectButton();
+    QPushButton *createButton(const QString &path, int w = DEFAULT_WIDTH, int h = DEFAULT_HEIGHT);
 
 private:
     QHBoxLayout *_layout;
@@ -30,10 +34,13 @@ private:
     QPushButton *_pauseButton;
     QPushButton *_forwardButton;
     QPushButton *_nextButton;
+    QPushButton *_soundButton;
 
     QSlider *_audioSlider;
     QAudioOutput *_audio;
 
+    QIcon _playIcon;
+    QIcon _pauseIcon;
 
     QMediaPlayer *_player;
 
