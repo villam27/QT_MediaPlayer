@@ -18,12 +18,15 @@ public:
 
 private:
     void addMenus();
+    void setupFileMenu();
 
 private:
     QMediaPlayer *_player;
 
     QMenu *_fileMenu;
-    QAction *_loadAction;
+    QAction *_openAction;
+    QAction *_openMultipleAction;
+    QAction *_openFolderAction;
 
     QMenu *_mediaMenu;
 
@@ -33,6 +36,8 @@ private:
 
 private slots:
     void load();
+    void loadMultiple();
+    void loadFolder();
 };
 
 #endif // CUSTOMMENUBAR_H
