@@ -34,6 +34,12 @@ private:
     QAction *_normalSpeedAction;
     QAction *_fastSpeedAction;
     QAction *_slowSpeedAction;
+    QAction *_pauseAction;
+    QAction *_stopAction;
+    QAction *_prevAction;
+    QAction *_nextAction;
+    QAction *_prevFrameAction;
+    QAction *_nextFrameAction;
 
     QMenu *_audioMenu;
 
@@ -47,6 +53,13 @@ private slots:
     void setNormalSpeed();
     void setFastSpeed();
     void setSlowSpeed();
+    void onPause();
+    void onStop();
+    void onPrev();
+    void onNext();
+    void onPrevFrame();
+    void onNextFrame();
+
 };
 
 #endif // CUSTOMMENUBAR_H

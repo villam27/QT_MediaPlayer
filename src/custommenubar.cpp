@@ -23,6 +23,12 @@ CustomMenuBar::~CustomMenuBar()
     delete _normalSpeedAction;
     delete _fastSpeedAction;
     delete _slowSpeedAction;
+    delete _pauseAction;
+    delete _stopAction;
+    delete _prevAction;
+    delete _nextAction;
+    delete _prevFrameAction;
+    delete _nextFrameAction;
 }
 
 void CustomMenuBar::setMediaPlayer(QMediaPlayer *player)
@@ -69,6 +75,31 @@ void CustomMenuBar::setupMediaMenu()
     _speedMenu->addAction(_slowSpeedAction);
     _speedMenu->addAction(_normalSpeedAction);
     _speedMenu->addAction(_fastSpeedAction);
+    _mediaMenu->addSeparator();
+    _pauseAction = new QAction("Pause/Resume", this);
+    _stopAction = new QAction("Stop", this);
+    _prevAction = new QAction("Previous", this);
+    _nextAction = new QAction("Next", this);
+    _prevFrameAction = new QAction("Prev Frame", this);
+    _nextFrameAction = new QAction("Next Frame", this);
+    _pauseAction->setShortcut(QKeySequence(Qt::Key_Space));
+    _stopAction->setShortcut(QKeySequence(Qt::Key_S));
+    _prevAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_P));
+    _nextAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_N));
+    _prevFrameAction->setShortcut(QKeySequence(Qt::Key_Left));
+    _nextFrameAction->setShortcut(QKeySequence(Qt::Key_Right));
+    connect(_pauseAction, &QAction::triggered, this, &CustomMenuBar::onPause);
+    connect(_stopAction, &QAction::triggered, this, &CustomMenuBar::onStop);
+    connect(_prevAction, &QAction::triggered, this, &CustomMenuBar::onPrev);
+    connect(_nextAction, &QAction::triggered, this, &CustomMenuBar::onNext);
+    connect(_prevFrameAction, &QAction::triggered, this, &CustomMenuBar::onPrevFrame);
+    connect(_nextFrameAction, &QAction::triggered, this, &CustomMenuBar::onNextFrame);
+    _mediaMenu->addAction(_pauseAction);
+    _mediaMenu->addAction(_stopAction);
+    _mediaMenu->addAction(_prevAction);
+    _mediaMenu->addAction(_nextAction);
+    _mediaMenu->addAction(_prevFrameAction);
+    _mediaMenu->addAction(_nextFrameAction);
 }
 
 // Slots
@@ -114,4 +145,43 @@ void CustomMenuBar::setSlowSpeed()
 {
     if(_player)
         _player->setPlaybackRate(0.5);
+}
+
+void CustomMenuBar::onPause()
+{
+    if(_player)
+        _player->isPlaying() ? _player->pause() : _player->play();
+}
+
+void CustomMenuBar::onStop()
+{
+    if(_player)
+    {
+        _player->pause();
+        _player->setPosition(0);
+    }
+}
+
+void CustomMenuBar::onPrev()
+{
+    if(_player)
+        _player->setPosition(0);
+}
+
+void CustomMenuBar::onNext()
+{
+    if(_player)
+        _player->setPosition(_player->duration());
+}
+
+void CustomMenuBar::onPrevFrame()
+{
+    if(_player)
+        _player->setPosition(_player->position() - 1000);
+}
+
+void CustomMenuBar::onNextFrame()
+{
+    if(_player)
+        _player->setPosition(_player->position() + 1000);
 }
