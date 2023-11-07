@@ -4,19 +4,33 @@
 CustomMenuBar::CustomMenuBar(QWidget *parent) : QMenuBar(parent)
 {
     (void)parent;
-    QMenu *menu = addMenu("File");
-    QAction *action = new QAction("Load", this);
-    connect(action, &QAction::triggered, this, &CustomMenuBar::load);
-    menu->addAction(action);
+    addMenus();
+    _loadAction = new QAction("Load", this);
+    connect(_loadAction, &QAction::triggered, this, &CustomMenuBar::load);
+    _fileMenu->addAction(_loadAction);
     _player = NULL;
 }
 
 CustomMenuBar::~CustomMenuBar()
-{}
+{
+    delete _fileMenu;
+    delete _mediaMenu;
+    delete _audioMenu;
+    delete _videoMenu;
+    delete _loadAction;
+}
 
 void CustomMenuBar::setMediaPlayer(QMediaPlayer *player)
 {
     _player = player;
+}
+
+void CustomMenuBar::addMenus()
+{
+    _fileMenu = addMenu("File");
+    _mediaMenu = addMenu("Media");
+    _audioMenu = addMenu("Audio");
+    _videoMenu = addMenu("Video");
 }
 
 // Slots
