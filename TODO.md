@@ -2,9 +2,6 @@
 
 ## In menu bar
 ### File
-- open file (ctrl + o)
-- Multi file open (ctrl + shift + o)
-- folder open (ctrl + f)
 - open recent
 
 ### Media

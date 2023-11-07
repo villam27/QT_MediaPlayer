@@ -19,6 +19,7 @@ public:
 private:
     void addMenus();
     void setupFileMenu();
+    void setupMediaMenu();
 
 private:
     QMediaPlayer *_player;
@@ -29,6 +30,10 @@ private:
     QAction *_openFolderAction;
 
     QMenu *_mediaMenu;
+    QMenu *_speedMenu;
+    QAction *_normalSpeedAction;
+    QAction *_fastSpeedAction;
+    QAction *_slowSpeedAction;
 
     QMenu *_audioMenu;
 
@@ -38,6 +43,10 @@ private slots:
     void load();
     void loadMultiple();
     void loadFolder();
+
+    void setNormalSpeed();
+    void setFastSpeed();
+    void setSlowSpeed();
 };
 
 #endif // CUSTOMMENUBAR_H
