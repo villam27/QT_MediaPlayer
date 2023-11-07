@@ -7,6 +7,11 @@ CustomMenuBar::CustomMenuBar(QWidget *parent) : QMenuBar(parent)
     addMenus();
     setupFileMenu();
     setupMediaMenu();
+    setupAudioMenu();
+    _fullscreenAction = new QAction("Fullscreen", this);
+    _fullscreenAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_F));
+    connect(_fullscreenAction, &QAction::triggered, this, &CustomMenuBar::onFullScreen);
+    _videoMenu->addAction(_fullscreenAction);
     _player = NULL;
 }
 
@@ -29,6 +34,10 @@ CustomMenuBar::~CustomMenuBar()
     delete _nextAction;
     delete _prevFrameAction;
     delete _nextFrameAction;
+    delete _increaseVolumeAction;
+    delete _decreaseVolumeAction;
+    delete _muteAction;
+    delete _fullscreenAction;
 }
 
 void CustomMenuBar::setMediaPlayer(QMediaPlayer *player)
@@ -100,6 +109,22 @@ void CustomMenuBar::setupMediaMenu()
     _mediaMenu->addAction(_nextAction);
     _mediaMenu->addAction(_prevFrameAction);
     _mediaMenu->addAction(_nextFrameAction);
+}
+
+void CustomMenuBar::setupAudioMenu()
+{
+    _increaseVolumeAction = new QAction("Increase Volume", this);
+    _decreaseVolumeAction = new QAction("Decrease Volume", this);
+    _muteAction = new QAction("Mute", this);
+    _increaseVolumeAction->setShortcut(QKeySequence(Qt::Key_Plus));
+    _decreaseVolumeAction->setShortcut(QKeySequence(Qt::Key_Minus));
+    _muteAction->setShortcut(QKeySequence(Qt::Key_M));
+    connect(_increaseVolumeAction, &QAction::triggered, this, &CustomMenuBar::onIncreaseVolume);
+    connect(_decreaseVolumeAction, &QAction::triggered, this, &CustomMenuBar::onDecreaseVolume);
+    connect(_muteAction, &QAction::triggered, this, &CustomMenuBar::onMute);
+    _audioMenu->addAction(_increaseVolumeAction);
+    _audioMenu->addAction(_decreaseVolumeAction);
+    _audioMenu->addAction(_muteAction);
 }
 
 // Slots
@@ -185,3 +210,15 @@ void CustomMenuBar::onNextFrame()
     if(_player)
         _player->setPosition(_player->position() + 1000);
 }
+
+void CustomMenuBar::onIncreaseVolume()
+{}
+
+void CustomMenuBar::onDecreaseVolume()
+{}
+
+void CustomMenuBar::onMute()
+{}
+
+void CustomMenuBar::onFullScreen()
+{}

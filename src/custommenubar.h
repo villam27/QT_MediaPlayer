@@ -20,6 +20,7 @@ private:
     void addMenus();
     void setupFileMenu();
     void setupMediaMenu();
+    void setupAudioMenu();
 
 private:
     QMediaPlayer *_player;
@@ -42,8 +43,12 @@ private:
     QAction *_nextFrameAction;
 
     QMenu *_audioMenu;
+    QAction *_increaseVolumeAction;
+    QAction *_decreaseVolumeAction;
+    QAction *_muteAction;
 
     QMenu *_videoMenu;
+    QAction *_fullscreenAction;
 
 private slots:
     void load();
@@ -59,6 +64,12 @@ private slots:
     void onNext();
     void onPrevFrame();
     void onNextFrame();
+
+    void onIncreaseVolume();
+    void onDecreaseVolume();
+    void onMute();
+
+    void onFullScreen();
 
 };
 
