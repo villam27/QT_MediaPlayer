@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     QWidget *centralWidget = new QWidget(this);
     _layout = new QVBoxLayout(centralWidget);
+    _layout->setContentsMargins(0, 0, 0, 0);
     _video = new QVideoWidget(this);
     _audio = new QAudioOutput;
     _menuBar = new CustomMenuBar(this);
@@ -37,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
                    , this, &MainWindow::onPlaybackStateChanged);
     connect(_player, &QMediaPlayer::positionChanged
                    , this, &MainWindow::onPositionChanged);
-    connect(_videoSlider, &QSlider::valueChanged
+    connect(_videoSlider, &QSlider::sliderMoved
                         , this, &MainWindow::onValueChanged);
 
     _layout->setMenuBar(_menuBar);
