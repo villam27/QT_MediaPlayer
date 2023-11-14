@@ -51,13 +51,39 @@ The Simple Qt Media Player is designed to be straightforward to use. Here are th
 4. **Close the Application:**
    - You can close the application by clicking the close button (X) in the top-right corner.
 
+## Shortcut
+
+### File
+- **Ctrl + O** : Open media
+- **Ctrl + shift + O** : Open mutliple medias
+- **Ctrl + F** : Open folder
+
+### Media
+- **Ctrl + 1** : Slow speed
+- **Ctrl + 2** : Normal speed
+- **Ctrl + 3** : Fast speed
+
+- **Space** : Pause/Resume
+- **S** : Stop
+- **Ctrl + P** : Previous media
+- **Ctrl + N** : Next media
+- **Left** : Previous frame
+- **Right** : Next frame
+
+### Audio
+- **+** : Increase volume
+- **-** : Decrease volume
+- **M** : Mute
+
+### Video
+- **Ctrl + F** : Fullscreen
+
 ## Known Issues
 
 As a work in progress, there may be some known issues with the Simple Qt Media Player. These issues may include:
 
 - Limited format support: Some media formats may not be playable.
 - User interface bugs and glitches.
-- Performance and stability issues, including occasional "little freeze" when playing video.
 
 ## Contributing
 

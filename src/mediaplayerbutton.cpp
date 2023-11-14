@@ -126,7 +126,6 @@ void MediaPlayerButton::OnNextButtonClicked()
 
 void MediaPlayerButton::OnAudioSliderValueChanged(int value)
 {
-    std::cout << value << std::endl;
     if (_audio)
         _audio->setVolume((float)value / 100.0f);
 }
